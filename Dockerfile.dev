@@ -1,0 +1,21 @@
+#For local development
+# Base image
+FROM node:19-alpine  
+
+# Working directory 
+WORKDIR /app
+
+# Copy package.json to the working directory
+COPY package*.json .
+
+# Install dependencies
+RUN npm install
+
+# Copy all files from current directory to the working directory
+COPY . .
+
+# Expose port 3000
+# EXPOSE 3000
+
+# Run the app
+CMD ["npm", "start"]
